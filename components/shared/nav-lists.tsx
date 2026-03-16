@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export default function NavLists() {
   const pathname = usePathname();
   return (
-    <nav className="hidden md:flex items-center gap-8">
+    <nav className="hidden xl:flex items-center gap-8">
       {headerNavItems.map((item) => {
         const isActive = pathname === item.link;
         return (

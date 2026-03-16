@@ -11,13 +11,20 @@ import { Button } from "../ui/button";
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const handleClick = () => {
+    setOpen(false);
+  };
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger>
-        <Menu />
+      <SheetTrigger className="xl:hidden">
+        <Menu className="text-foreground" />
       </SheetTrigger>
-      <SheetContent>
-        <div className="md:hidden border-t">
+      <SheetContent className="xl:hidden p-4 text-foreground">
+        <div className="flex items-center mt-8">
+          <span className="text-2xl font-bold">SET</span>
+          <span className="text-2xl font-bold text-primary">MySpace</span>
+        </div>
+        <div className="border-t">
           <nav className="flex flex-col p-4 gap-4">
             {headerNavItems.map((item) => {
               const isActive = pathname === item.link;
@@ -29,8 +36,9 @@ export default function MobileNav() {
                     "text-sm font-medium transition-colors",
                     isActive
                       ? "text-primary"
-                      : "text-foreground hover:text-primary",
+                      : "text-foreground hover:text-primary cursor-pointer",
                   )}
+                  onClick={handleClick}
                 >
                   {item.name}
                 </Link>
@@ -38,12 +46,16 @@ export default function MobileNav() {
             })}
             <Link
               href="#"
-              className="flex items-center gap-2 text-sm font-medium text-[#e91e63] hover:text-[#c2185b] transition-colors py-2"
+              className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
+              onClick={handleClick}
             >
               <User className="w-4 h-4" />
               BECOME A PROFESSIONAL
             </Link>
-            <Button className="bg-black text-white hover:bg-gray-800 w-full">
+            <Button
+              className="bg-black text-white hover:bg-gray-800 px-6 cursor-pointer"
+              onClick={handleClick}
+            >
               Login
             </Button>
           </nav>

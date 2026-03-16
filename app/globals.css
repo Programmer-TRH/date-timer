@@ -80,7 +80,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --background: oklch(97.216% 0.01451 1.106);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(23.503% 0.00003 271.152);
 }
 
 .dark {
@@ -133,6 +133,9 @@
   @apply max-w-[1440px] w-full mx-auto px-4;
 }
 
+@utility wrapper-hero {
+  @apply max-w-7xl w-full mx-auto px-4;
+}
 @utility section-spacing {
   @apply py-8 sm:py-12;
 }
