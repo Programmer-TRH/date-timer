@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useForm, useWatch, Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Globe, Building2, MapPin, Loader2 } from "lucide-react";
@@ -21,17 +21,18 @@ import useLocationData from "@/hook/useLocation";
 import { bookingSchema, BookingFormData } from "@/schemas/booking-schema";
 
 export default function BookingForm() {
-  const { control, handleSubmit, setValue } = useForm<BookingFormData>({
-    resolver: zodResolver(bookingSchema),
-    defaultValues: {
-      country: "",
-      state: "",
-      city: "",
-    },
-  });
-
-  const country = useWatch({ control, name: "country" });
-  const state = useWatch({ control, name: "state" });
+  const { control, handleSubmit, setValue, reset, watch } =
+    useForm<BookingFormData>({
+      mode: "onChange",
+      resolver: zodResolver(bookingSchema),
+      defaultValues: {
+        country: "",
+        state: "",
+        city: "",
+      },
+    });
+  const country = watch("country");
+  const state = watch("state");
 
   const {
     countries,
@@ -67,6 +68,11 @@ export default function BookingForm() {
   function onSubmit(data: BookingFormData) {
     toast.success("Selection Complete!", {
       description: `${data.country} → ${data.state} → ${data.city}`,
+    });
+    reset({
+      country: "",
+      state: "",
+      city: "",
     });
   }
 
