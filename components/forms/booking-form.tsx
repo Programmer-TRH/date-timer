@@ -46,7 +46,7 @@ export default function BookingForm() {
 
   useEffect(() => {
     fetchCountries();
-  }, [fetchCountries]);
+  }, []);
 
   useEffect(() => {
     if (!country) return;
@@ -55,14 +55,14 @@ export default function BookingForm() {
     setValue("state", "");
     setValue("city", "");
     setCities([]);
-  }, [country, fetchStates, setValue, setCities]);
+  }, [country]);
 
   useEffect(() => {
     if (!state) return;
 
     fetchCities(state);
     setValue("city", "");
-  }, [state, fetchCities, setValue]);
+  }, [state]);
 
   function onSubmit(data: BookingFormData) {
     toast.success("Selection Complete!", {
