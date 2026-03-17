@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#1E1E1E] text-gray-300">
+    <footer className="bg-[#1E1E1E] text-gray-100">
       <div className="wrapper py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
@@ -36,7 +36,7 @@ export function SiteFooter() {
               </Link>
             </div>
 
-            <div className="text-center text-[10px] text-gray-500">
+            <div className="text-center text-[10px] text-gray-100">
               <p>All Rights reserved 2022 setmyspace</p>
             </div>
           </div>

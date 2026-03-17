@@ -28,7 +28,10 @@ export default function ProfessionalCard({
             </Badge>
           ))}
         </div>
-        <button className="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors">
+        <button
+          className="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
+          aria-label="Add to favorites"
+        >
           <Heart className="w-4 h-4 text-[#ec4899]" />
         </button>
       </div>
