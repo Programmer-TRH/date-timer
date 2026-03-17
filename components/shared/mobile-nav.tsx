@@ -16,10 +16,19 @@ export default function MobileNav() {
   };
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger className="xl:hidden">
+      <SheetTrigger
+        className="xl:hidden"
+        aria-label="Open menu"
+        aria-expanded={false} // dynamic if possible
+        aria-controls="mobile-menu"
+      >
         <Menu className="text-foreground" />
       </SheetTrigger>
-      <SheetContent className="xl:hidden p-4 text-foreground">
+      <SheetContent
+        className="xl:hidden p-4 text-foreground"
+        id="mobile-menu"
+        aria-labelledby="mobile-menu-sidebar"
+      >
         <div className="flex items-center mt-8">
           <span className="text-2xl font-bold">SET</span>
           <span className="text-2xl font-bold text-primary">MySpace</span>

@@ -24,15 +24,15 @@ export function FeaturedCategories() {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-white text-xl font-semibold">
+                  <h2 className="text-white text-xl font-semibold">
                     {category.title}
-                  </h3>
+                  </h2>
                   <Button
                     nativeButton={false}
                     variant="link"
                     className="text-white group-hover:underline cursor-pointer px-0"
                     render={
-                      <Link href={`/category/${category.slug}`}>
+                      <Link href="#">
                         Explore Now
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </Link>
